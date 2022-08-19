@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"restful-api-with-go/service"
 )
 
 func GetResponse() {
@@ -24,5 +25,9 @@ func GetResponse() {
 		log.Fatal(err)
 	}
 	// convert this []byte response into a string using string(responseData)
-	fmt.Println(string(responseData))
+
+	responsesValue := string(responseData)
+	fmt.Println(responsesValue)
+
+	service.Unmarshalling(responseData)
 }
